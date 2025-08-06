@@ -7,10 +7,14 @@ export default function CalculadoraComBugs() {
   const [resultado, setResultado] = useState(null);
 
   const somar = () => {
-    // ❌ Bug 1: parseInt ignora casas decimais (use parseFloat ou Number para corrigir)
-    const res = parseInt(num1) + parseInt(num2);
+    const res = Number(num1) + Number(num2);
     setResultado(res);
   };
+
+  const multiplicar = () => {
+    const res = Number(num1) * Number(num2)
+    setResultado(res)
+  }
 
   const subtrair = () => {
     // ❌ Bug 2: Operação incorreta (realiza multiplicação em vez de subtração)
@@ -20,7 +24,7 @@ export default function CalculadoraComBugs() {
 
   return (
     <div>
-      <h2>Calculadora com Bugs</h2>
+      <h2>Calculadora Colaborativa</h2>
       <input
         type="text"
         placeholder="Número 1"
@@ -36,6 +40,7 @@ export default function CalculadoraComBugs() {
       <br />
       <button onClick={somar}>Somar</button>
       <button onClick={subtrair}>Subtrair</button>
+      <button onClick={multiplicar}>Multiplicar</button>
       <h3>Resultado: {resultado}</h3>
     </div>
   );
