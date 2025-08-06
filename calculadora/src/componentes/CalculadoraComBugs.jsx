@@ -18,6 +18,12 @@ export default function CalculadoraComBugs() {
     setResultado(res);
   };
 
+  const multiplicar = () => {
+    // ❌ Bug 2: Operação incorreta (realiza multiplicação em vez de subtração)
+    const res = Number(num1) * Number(num2);
+    setResultado(res);
+  };
+
   return (
     <div>
       <h2>Calculadora com Bugs</h2>
@@ -36,6 +42,7 @@ export default function CalculadoraComBugs() {
       <br />
       <button onClick={somar}>Somar</button>
       <button onClick={subtrair}>Subtrair</button>
+      <button onClick={multiplicar}>Multiplicar</button>
       <h3>Resultado: {resultado}</h3>
     </div>
   );
